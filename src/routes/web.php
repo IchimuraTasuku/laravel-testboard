@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/newpost', [TestController::class, 'newpost']);
+Route::post('/register', [TestController::class, 'register'])->name('register');
+Route::post('/destroy',[TestController::class,'destroy'])->name('destroy');
+Route::get('/editing', [TestController::class, 'editing'])->name('editing');
+

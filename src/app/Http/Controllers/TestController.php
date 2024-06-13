@@ -47,12 +47,15 @@ class TestController extends Controller
         $bulletinBoard = new BulletinBoard();
         // 削除対象のデータの取得
         $deleteTarget = $bulletinBoard->getDataMatchingId($request->id);
-        // データを削除
-        $deleteTarget->delete();
+        // 削除対象データが存在する場合
+        if($deleteTarget)
+        {
+            // データを削除
+            $deleteTarget->delete();
+        }
         // 削除していないデータを取得
         $posts = $bulletinBoard->getPost();
         return view('register', compact('posts'));
-        dd('destroy');
     }
 
     private function update($id, $title, $comment)

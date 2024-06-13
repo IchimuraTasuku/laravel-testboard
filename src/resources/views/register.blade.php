@@ -72,6 +72,19 @@
         .delete-button:hover {
             background-color: #c82333;
         }
+        .new-post-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .new-post-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -96,6 +109,10 @@
                 </div>
             </div>
         @endforeach
+        <form method="get" action="/newpost">
+            @csrf
+            <button class="new-post-button">新規投稿</button>
+        </form>
     </div>
 </body>
 </html>

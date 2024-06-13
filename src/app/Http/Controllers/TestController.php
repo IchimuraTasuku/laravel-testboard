@@ -45,9 +45,14 @@ class TestController extends Controller
     public function destroy(Request $request)
     {
         $bulletinBoard = new BulletinBoard();
+        // 削除対象のデータの取得
         $deleteTarget = $bulletinBoard->getDataMatchingId($request->id);
+        // データを削除
+        $deleteTarget->delete();
+        // 削除していないデータを取得
         $posts = $bulletinBoard->getPost();
         return view('register', compact('posts'));
+        dd('destroy');
     }
 
     private function update($id, $title, $comment)
